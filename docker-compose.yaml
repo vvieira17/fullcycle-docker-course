@@ -2,6 +2,15 @@ version: '3'
 
 services:
 
+  nginx:
+    build: ./nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - app
+    networks:
+      - node-network
+
   app:
     build:
       context: node
@@ -13,8 +22,6 @@ services:
     tty: true
     ports:
      - "3000:3000"
-    
-
 
   db:
     image: mysql:8.0.36
