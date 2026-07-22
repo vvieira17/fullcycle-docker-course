@@ -15,9 +15,10 @@ connection.query(`CREATE TABLE IF NOT EXISTS people (id INT AUTO_INCREMENT PRIMA
 
 const name = 'Vinícius';
 const sql_insert = `INSERT INTO people(name) values(?)`;
-connection.query(sql_insert, name);
 
 app.get('/', (req,res) => {
+
+    connection.query(sql_insert, name);
     connection.query('SELECT name FROM people', (err, results) =>  {
         if(err) {
             console.log('Error searching database');
