@@ -30,9 +30,7 @@ services:
     tty: true
     volumes:
       # volume nomeado
-      - mysql_data:/var/lib/mysql
-      # script inicial
-      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - mysql_data:/var/lib/mysql      
     environment:
       - MYSQL_DATABASE=nodedb
       - MYSQL_ROOT_PASSWORD=root
